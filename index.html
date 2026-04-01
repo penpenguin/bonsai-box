@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BONSAI BOX</title>
+    <meta
+      name="description"
+      content="箱と直方体だけで盆栽を描く、静的 Web の 3D ビューア兼ミニジェネレータ。"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d1218'/%3E%3Crect x='16' y='40' width='32' height='8' rx='2' fill='%235b6875'/%3E%3Crect x='29' y='22' width='6' height='18' fill='%236b4d39'/%3E%3Crect x='21' y='14' width='22' height='12' rx='4' fill='%23607d59'/%3E%3C/svg%3E"
+    />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <p class="hero__eyebrow">digital miniature garden</p>
+        <h1 class="hero__title">BONSAI BOX</h1>
+        <p class="hero__lead">
+          箱だけで組んだ小さな盆栽を、静かな展示物のように眺める 3D ビューア。
+        </p>
+      </header>
+
+      <main class="layout">
+        <section class="viewer-card" aria-label="3D 盆栽ビューア">
+          <div class="viewer-card__glow"></div>
+          <div id="viewer-stage" class="viewer-stage">
+            <canvas id="viewer-canvas" aria-label="BONSAI BOX 3Dキャンバス"></canvas>
+          </div>
+          <div class="viewer-caption">
+            <span>ドラッグで回転</span>
+            <span>ホイール / ピンチでズーム</span>
+          </div>
+        </section>
+
+        <aside id="controls" class="control-panel" aria-label="操作パネル">
+          <div class="panel-block">
+            <div class="panel-label">プリセット</div>
+            <div class="preset-grid">
+              <button type="button" class="control-button" data-action="preset" data-preset="straight">直幹</button>
+              <button type="button" class="control-button" data-action="preset" data-preset="slant">斜幹</button>
+              <button type="button" class="control-button" data-action="preset" data-preset="windswept">吹き流し</button>
+              <button type="button" class="control-button" data-action="preset" data-preset="semiCascade">半懸崖</button>
+            </div>
+          </div>
+
+          <div class="panel-block">
+            <div class="panel-label">seed</div>
+            <div class="seed-row">
+              <input
+                type="text"
+                id="seed-input"
+                name="seed"
+                inputmode="numeric"
+                autocomplete="off"
+                class="seed-input"
+                data-role="seed-input"
+                aria-label="seed入力"
+                placeholder="例: 20260401"
+              />
+              <button type="button" class="control-button control-button--accent" data-action="apply-seed">適用</button>
+            </div>
+          </div>
+
+          <div class="panel-block panel-block--actions">
+            <button type="button" class="control-button" data-action="randomize">ランダム生成</button>
+            <button type="button" class="control-button" data-action="reset-view">視点リセット</button>
+            <button type="button" class="control-button" data-action="toggle-autorotate">自動回転 OFF</button>
+            <button type="button" class="control-button" data-action="save-png">PNG保存</button>
+          </div>
+
+          <div class="panel-meta" data-role="meta">直幹 / seed: 2026</div>
+        </aside>
+      </main>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
