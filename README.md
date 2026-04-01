@@ -50,3 +50,9 @@ npm test
 
 - 静的ホスティングへは `dist/` の中身を配置します。
 - GitHub Pages / Netlify / S3 などの静的配信で動作します。
+
+## GitHub Pages
+
+`[.github/workflows/deploy-pages.yml](/repository/bonsai-box/.github/workflows/deploy-pages.yml)` を追加してあり、`main` への push または手動実行で GitHub Pages にデプロイできます。
+
+利用前に GitHub のリポジトリ設定で `Settings > Pages > Build and deployment > Source` を `GitHub Actions` に切り替えてください。
